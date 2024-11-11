@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "FazendaUrbanaApi.Controllers.Cliente.ClienteController",
+    "ContainingType": "FazendaUrbanaApi.Controllers.Clientes.ClienteController",
     "Method": "CriarCliente",
     "RelativePath": "api/Cliente/CriarCliente",
     "HttpMethod": "POST",
@@ -9,13 +9,13 @@
     "Parameters": [
       {
         "Name": "criacao",
-        "Type": "FazendaUrbanaApi.Dtos.Cliente.CriacaoClienteDto",
+        "Type": "FazendaUrbanaApi.Dtos.Clientes.CriacaoClienteDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FazendaUrbanaApi.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[FazendaUrbanaApi.Models.Cliente.ClienteModel, FazendaUrbanaApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "FazendaUrbanaApi.Models.ResponseModel\u00601[[FazendaUrbanaApi.Models.Cliente, FazendaUrbanaApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -26,16 +26,125 @@
     ]
   },
   {
-    "ContainingType": "FazendaUrbanaApi.Controllers.Cliente.ClienteController",
+    "ContainingType": "FazendaUrbanaApi.Controllers.Clientes.ClienteController",
+    "Method": "ExcluirCliente",
+    "RelativePath": "api/Cliente/DeletarCliente/{IdCliente}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdCliente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FazendaUrbanaApi.Models.ResponseModel\u00601[[FazendaUrbanaApi.Models.Cliente, FazendaUrbanaApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FazendaUrbanaApi.Controllers.Clientes.ClienteController",
+    "Method": "EditarCliente",
+    "RelativePath": "api/Cliente/EditarCliente",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "edicao",
+        "Type": "FazendaUrbanaApi.Dtos.Clientes.EdicaoClienteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FazendaUrbanaApi.Models.ResponseModel\u00601[[FazendaUrbanaApi.Models.Cliente, FazendaUrbanaApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FazendaUrbanaApi.Controllers.Clientes.ClienteController",
+    "Method": "EditarClientePatch",
+    "RelativePath": "api/Cliente/EditarCliente/{IdCliente}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdCliente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "edicaoDto",
+        "Type": "FazendaUrbanaApi.Dtos.Clientes.EdicaoParciaClientelDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FazendaUrbanaApi.Models.ResponseModel\u00601[[FazendaUrbanaApi.Models.Cliente, FazendaUrbanaApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FazendaUrbanaApi.Controllers.Clientes.ClienteController",
     "Method": "ListarClientes",
-    "RelativePath": "api/Cliente/ListaClientes",
+    "RelativePath": "api/Cliente/ListarClientes",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "FazendaUrbanaApi.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[FazendaUrbanaApi.Models.Cliente.ClienteModel, FazendaUrbanaApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "FazendaUrbanaApi.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[FazendaUrbanaApi.Models.Cliente, FazendaUrbanaApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FazendaUrbanaApi.Controllers.Clientes.ClienteController",
+    "Method": "GetClientePorId",
+    "RelativePath": "api/Cliente/ListarClientes/{IdCodCliente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdCodCliente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FazendaUrbanaApi.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[FazendaUrbanaApi.Models.Cliente, FazendaUrbanaApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

@@ -1,7 +1,8 @@
-﻿namespace FazendaUrbanaApi.Dtos.Cliente
+﻿namespace FazendaUrbanaApi.Dtos.Clientes
 {
-    public class CriacaoClienteDto
+    public class EdicaoClienteDto
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Cnpj { get; set; }
         public string Email { get; set; }

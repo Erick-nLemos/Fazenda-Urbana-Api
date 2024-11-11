@@ -12,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IClienteInterface, ClienteService>();
+builder.Services.AddScoped<IClienteLoginInterface, LoginClienteService>();
 builder.Services.AddDbContext<TetoVerdeContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));

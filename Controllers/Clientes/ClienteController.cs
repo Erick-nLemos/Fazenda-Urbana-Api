@@ -14,20 +14,23 @@ namespace FazendaUrbanaApi.Controllers.Clientes
     public class ClienteController : ControllerBase
     {
         private readonly IClienteInterface clienteInterface;
-        public ClienteController(IClienteInterface clienteInterface) { 
+        private readonly IClienteLoginInterface clienteLoginInterface;
+        public ClienteController(IClienteInterface clienteInterface, IClienteLoginInterface clienteLoginInterface) { 
             this.clienteInterface = clienteInterface;
+            this.clienteLoginInterface = clienteLoginInterface;
         }
 
         [HttpPost("Login")]
         public async Task<ActionResult<ResponseModel<Cliente>>> Login(LoginClienteDto loginClienteDto)
         {
-            var clienteLogin = await this.clienteInterface.LoginValidation(loginClienteDto);
+            var clienteLogin = await this.clienteLoginInterface.LoginValidation(loginClienteDto);
             if (!clienteLogin.loginValido)
             {
                 return Unauthorized(clienteLogin.resposta.Mensagem = "Usuario ou Senha Invalidos!");
             }
 
-            return Ok(clienteLogin.resposta.Mensagem = "Login realizado com Sucesso!");
+            clienteLogin.resposta.Mensagem = "Login realizado com Sucesso!";
+            return Ok(clienteLogin.resposta);
         }
 
         [HttpGet("ListarClientes")]

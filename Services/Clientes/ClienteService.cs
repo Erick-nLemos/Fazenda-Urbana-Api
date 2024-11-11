@@ -13,40 +13,6 @@ namespace FazendaUrbanaApi.Services.Clientes
             this.context = context;
         }
 
-        public async Task<(bool loginValido, ResponseModel<Cliente> resposta)> LoginValidation(LoginClienteDto loginClienteDto)
-        {
-            ResponseModel<Cliente> resposta = new ResponseModel<Cliente>();
-            bool loginValido = false;
-            try
-            {
-                var cliente = await context.Clientes.FirstOrDefaultAsync(clienteBanco => clienteBanco.Fantasia == loginClienteDto.Name);
-                if (cliente == null) {
-                    resposta.Mensagem = "Usuario ou Senha Invalidos.";
-                    return (loginValido, resposta);
-                }
-
-                if(cliente.Senha.Equals(loginClienteDto.Senha))
-                {
-                    resposta.Dados = cliente;
-                    resposta.Mensagem = "Login encontrado!";
-                    loginValido = true;
-                    return (loginValido, resposta);
-                }
-                else
-                {
-                    resposta.Mensagem = "Usuario ou Senha Invalidos.";
-                }
-                
-                return (loginValido, resposta);
-            }
-            catch (Exception ex) {
-                resposta.Mensagem = ex.Message;
-                resposta.Status = false;
-                return (loginValido, resposta);
-            }
-        }
-
-
         public async Task<ResponseModel<List<Cliente>>> CriarCliente(CriacaoClienteDto criacao)
         {
             ResponseModel<List<Cliente>> resposta = new ResponseModel<List<Cliente>>();

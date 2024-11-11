@@ -4,8 +4,7 @@ using FazendaUrbanaApi.Models;
 namespace FazendaUrbanaApi.Services.Clientes
 {
     public interface IClienteInterface
-    {
-        Task<(bool loginValido, ResponseModel<Cliente> resposta)> LoginValidation(LoginClienteDto loginClienteDto); 
+    { 
         Task<ResponseModel<List<Cliente>>> ListarClientes();
         Task<ResponseModel<Cliente>> GetClientePorId(int IdCliente);
         Task<ResponseModel<List<Cliente>>> CriarCliente(CriacaoClienteDto criacao);

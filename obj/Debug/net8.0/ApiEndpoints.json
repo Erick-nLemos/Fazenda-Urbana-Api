@@ -153,5 +153,31 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "FazendaUrbanaApi.Controllers.Clientes.ClienteController",
+    "Method": "Login",
+    "RelativePath": "api/Cliente/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginClienteDto",
+        "Type": "FazendaUrbanaApi.Dtos.Clientes.LoginClienteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FazendaUrbanaApi.Models.ResponseModel\u00601[[FazendaUrbanaApi.Models.Cliente, FazendaUrbanaApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

@@ -7,9 +7,9 @@ namespace FazendaUrbanaApi.Services.Clientes
     { 
         Task<ResponseModel<List<Cliente>>> ListarClientes();
         Task<ResponseModel<Cliente>> GetClientePorId(int IdCliente);
-        Task<ResponseModel<List<Cliente>>> CriarCliente(CriacaoClienteDto criacao);
-        Task<ResponseModel<List<Cliente>>> EditarCliente(EdicaoClienteDto edicao);
-        Task<ResponseModel<List<Cliente>>> EditarClientePatch(int IdCLiente, EdicaoParciaClientelDto edicaoDto);
+        Task<ResponseModel<Cliente>> CriarCliente(CriacaoClienteDto criacao);
+        Task<ResponseModel<Cliente>> EditarCliente(int IdClinet, EdicaoClienteDto edicao);
+        Task<ResponseModel<List<Cliente>>> EditarClientePatch(int IdCliente, EdicaoParciaClientelDto edicaoDto);
         Task<ResponseModel<List<Cliente>>> ExcluirCliente(int IdCliente);
 
     }

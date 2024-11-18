@@ -26,7 +26,8 @@ namespace FazendaUrbanaApi.Controllers.Clientes
             var clienteLogin = await this.clienteLoginInterface.LoginValidation(loginClienteDto);
             if (!clienteLogin.loginValido)
             {
-                return Unauthorized(clienteLogin.resposta.Mensagem = "Usuario ou Senha Invalidos!");
+                clienteLogin.resposta.Mensagem = "Usuario ou Senha Invalidos!";
+                return Unauthorized(clienteLogin.resposta);
             }
 
             clienteLogin.resposta.Mensagem = "Login realizado com Sucesso!";
@@ -54,14 +55,14 @@ namespace FazendaUrbanaApi.Controllers.Clientes
             return Ok(cliente);
         }
 
-        [HttpPut("EditarCliente")]
-        public async Task<ActionResult<ResponseModel<Cliente>>> EditarCliente(EdicaoClienteDto edicao)
+        [HttpPut("EditarCliente/{IdCliente}")]
+        public async Task<ActionResult<ResponseModel<Cliente>>> EditarCliente(int IdCliente, EdicaoClienteDto edicao)
         {
-            var cliente = await clienteInterface.EditarCliente(edicao);
+            var cliente = await clienteInterface.EditarCliente(IdCliente, edicao);
             return Ok(cliente);
         }
 
-        [HttpPatch("EditarCliente/{IdCliente}")]
+        [HttpPatch("EditarClientePatch/{IdCliente}")]
         public async Task<ActionResult<ResponseModel<Cliente>>> EditarClientePatch(int IdCliente, EdicaoParciaClientelDto edicaoDto)
         {
             var cliente = await clienteInterface.EditarClientePatch(IdCliente, edicaoDto);

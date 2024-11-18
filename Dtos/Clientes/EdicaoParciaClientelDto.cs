@@ -13,5 +13,6 @@
         public string? Cidade { get; set; }
         public string? Uf { get; set; }
         public string? Senha { get; set; }
+
     }
 }

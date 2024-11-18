@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FazendaUrbanaApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6216446b969752582fe8d0e759915a37baebd9e5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+758ef3e581abeecfb9b6ba11bbfbfcdb56a300eb")]
 [assembly: System.Reflection.AssemblyProductAttribute("FazendaUrbanaApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FazendaUrbanaApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

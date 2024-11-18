@@ -24,6 +24,7 @@ namespace FazendaUrbanaApi.Services.Clientes
                 if (cliente == null)
                 {
                     resposta.Mensagem = "Usuario ou Senha Invalidos.";
+                    resposta.Status = false;
                     return (loginValido, resposta);
                 }
 
@@ -37,9 +38,9 @@ namespace FazendaUrbanaApi.Services.Clientes
                 else
                 {
                     resposta.Mensagem = "Usuario ou Senha Invalidos.";
+                    resposta.Status = false;
+                    return (loginValido,resposta);
                 }
-
-                return (loginValido, resposta);
             }
             catch (Exception ex)
             {

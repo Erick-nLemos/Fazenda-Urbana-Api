@@ -13,9 +13,9 @@ namespace FazendaUrbanaApi.Services.Clientes
             this.context = context;
         }
 
-        public async Task<ResponseModel<List<Cliente>>> CriarCliente(CriacaoClienteDto criacao)
+        public async Task<ResponseModel<Cliente>> CriarCliente(CriacaoClienteDto criacao)
         {
-            ResponseModel<List<Cliente>> resposta = new ResponseModel<List<Cliente>>();
+            ResponseModel<Cliente> resposta = new ResponseModel<Cliente>();
             try
             {
                 var cliente = new Cliente()
@@ -35,7 +35,7 @@ namespace FazendaUrbanaApi.Services.Clientes
                 context.Add(cliente);
                 await context.SaveChangesAsync();
 
-                resposta.Dados = await context.Clientes.ToListAsync();
+                resposta.Dados = cliente;
                 resposta.Mensagem = "Cliente Criado com Sucesso!";
                 return resposta;
             }
@@ -46,12 +46,12 @@ namespace FazendaUrbanaApi.Services.Clientes
             }
         }
 
-        public async Task<ResponseModel<List<Cliente>>> EditarCliente(EdicaoClienteDto edicao)
+        public async Task<ResponseModel<Cliente>> EditarCliente(int IdCliente,EdicaoClienteDto edicao)
         {
-            ResponseModel<List<Cliente>> resposta = new ResponseModel<List<Cliente>>();
+            ResponseModel<Cliente> resposta = new ResponseModel<Cliente>();
             try
             {
-                var cliente = await context.Clientes.FirstOrDefaultAsync(clienteBanco => clienteBanco.IdCodCliente == edicao.Id);
+                var cliente = await context.Clientes.FirstOrDefaultAsync(clienteBanco => clienteBanco.IdCodCliente == IdCliente);
                 if (cliente == null) {
                     resposta.Mensagem = "CLiente não encontrado!";
                     return resposta;
@@ -66,11 +66,10 @@ namespace FazendaUrbanaApi.Services.Clientes
                 cliente.Bairro = edicao.Bairro;
                 cliente.Cidade = edicao.Cidade;
                 cliente.Uf = edicao.Uf;
-                cliente.Senha = edicao.Senha;
                 context.Update(cliente);
                 await context.SaveChangesAsync();
 
-                resposta.Dados = await context.Clientes.ToListAsync();
+                resposta.Dados = cliente;
                 resposta.Mensagem = "Cliente Editado com Sucesso!";
                 return resposta;
 

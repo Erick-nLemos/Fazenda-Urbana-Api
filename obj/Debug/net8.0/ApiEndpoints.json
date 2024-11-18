@@ -54,11 +54,16 @@
   {
     "ContainingType": "FazendaUrbanaApi.Controllers.Clientes.ClienteController",
     "Method": "EditarCliente",
-    "RelativePath": "api/Cliente/EditarCliente",
+    "RelativePath": "api/Cliente/EditarCliente/{IdCliente}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "IdCliente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
       {
         "Name": "edicao",
         "Type": "FazendaUrbanaApi.Dtos.Clientes.EdicaoClienteDto",
@@ -80,7 +85,7 @@
   {
     "ContainingType": "FazendaUrbanaApi.Controllers.Clientes.ClienteController",
     "Method": "EditarClientePatch",
-    "RelativePath": "api/Cliente/EditarCliente/{IdCliente}",
+    "RelativePath": "api/Cliente/EditarClientePatch/{IdCliente}",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
